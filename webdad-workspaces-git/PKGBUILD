@@ -1,19 +1,18 @@
 # Maintainer: Vitor Lopes <vmnlop@gmail.com>
 
-_pkgname=webdad-speech
+_pkgname=webdad-workspaces
 pkgname="$_pkgname-git"
-pkgver=r3.b92ccf4
+pkgver=r3.eea0a7d
 pkgrel=1
-pkgdesc="provides text to speech ( TTS ) for dunst notifications"
+pkgdesc="WebDad Workspaces functionality and scripts"
 arch=('any')
-url="https://github.com/codesardine/webdad-speech"
+url="https://github.com/codesardine/webdad-workspaces"
 license=('GPL')
 makedepends=('git')
 source=("git+$url.git")
 sha256sums=('SKIP')
-conflicts=('webdad-speech')
-provides=('webdad-speech')
-depends=('mimic')
+conflicts=('webdad-workspaces')
+provides=('webdad-workspaces')
 
 pkgver() {
     cd "$_pkgname"
@@ -24,6 +23,5 @@ pkgver() {
 
 package(){
 	install -d $pkgdir/etc
-	cp -r $srcdir/$_pkgname/usr $pkgdir/usr
-        chmod a+x $pkgdir/usr/bin/dunst_mimic.sh
+	cp -r $srcdir/$_pkgname/etc $pkgdir/
 }
